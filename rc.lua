@@ -96,11 +96,7 @@ naughty.config.defaults.hover_timeout = nil
 -- -- }}}
 
 -- {{{ Wallpaper
-if beautiful.wallpaper then
-    for s = 1, screen.count() do
-        gears.wallpaper.maximized(beautiful.wallpaper, s, true)
-    end
-end
+gears.wallpaper.maximized(home_path .. ".config/awesome/themes/default/bg.png", s, true)
 -- }}}
 
 -- {{{ Tags
