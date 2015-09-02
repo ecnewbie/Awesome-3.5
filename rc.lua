@@ -374,8 +374,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
-    awful.key({ modkey,           }, "w",     function () awful.util.spawn("firefox")    end, "Start Web Browser"),
-    awful.key({ modkey,           }, "e",     function () awful.util.spawn("xdg-open " .. home_path)	 end, "Start File Manager"),
+    awful.key({ modkey,           }, "w",     function () awful.util.spawn("firefox")    end),
+    awful.key({ modkey,           }, "e",     function () awful.util.spawn("xdg-open " .. home_path)	 end),
+    awful.key({ modkey,           }, "d",     function () awful.util.spawn(home_path .. ".startd.sh")	 end),
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
