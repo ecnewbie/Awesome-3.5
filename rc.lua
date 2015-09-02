@@ -10,7 +10,7 @@ require("awful.autofocus")
 local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
-beautiful.init( awful.util.getdir("config") .. "/themes/default/theme.lua" )
+beautiful.init( awful.util.getdir("config") .. "/themes/zenburn/theme.lua" )
 
 -- Notification library
 local naughty = require("naughty")
