@@ -149,9 +149,9 @@ vicious.register(mem, vicious.widgets.mem, "Mem: $1% Use: $2MB Total: $3MB Free:
 -- End Mem }}}
 --
 -- {{{ Start Gmail 
-mailicon = wibox.widget.imagebox(beautiful.widget_mail)
-mailwidget = wibox.widget.textbox()
-gmail_t = awful.tooltip({ objects = { mailwidget },})
+-- mailicon = wibox.widget.imagebox(beautiful.widget_mail)
+-- mailwidget = wibox.widget.textbox()
+-- gmail_t = awful.tooltip({ objects = { mailwidget },})
 -- vicious.register(mailwidget, vicious.widgets.gmail,
 --         function (widget, args)
 --         gmail_t:set_text(args["{subject}"])
