@@ -49,7 +49,8 @@ end
 -- }}}
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
+-- use emacs as default terminal, this need to run emacs as daemon.
+terminal = "emacsclient -c -e \"(multi-eshell 1)\" -a emacs"
 editor = os.getenv("EDITOR") or "emacs"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -117,7 +118,7 @@ tags = {
       layouts[5],   -- 1:irc
       layouts[10],  -- 2:emacs
       layouts[10],  -- 3:firefox
-      layouts[12],  -- 4:filemanager
+      layouts[2],  -- 4:filemanager
       layouts[2],   -- 5:vbox
       layouts[10],  -- 6:multimedia
       layouts[10],  -- 7:conky
@@ -373,6 +374,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "w",     function () awful.util.spawn("firefox")    end),
     awful.key({ modkey,           }, "e",     function () awful.util.spawn("xdg-open " .. home_path)     end),
     awful.key({ modkey,           }, "d",     function () awful.util.spawn(home_path .. ".startd.sh")    end),
+    awful.key({ modkey,           }, "Up",    function () awful.util.spawn("xdotool click --clearmodifiers 4")    end),
+    awful.key({ modkey,           }, "Down",  function () awful.util.spawn("xdotool click --clearmodifiers 5")    end),
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
