@@ -50,7 +50,7 @@ end
 
 -- This is used later as the default terminal and editor to run.
 -- use emacs as default terminal, this need to run emacs as daemon.
-terminal = "emacsclient -c -e \"(multi-eshell 1)\" -a emacs"
+terminal = "emacsclient -c -e \"(multi-term)\" -a emacs"
 editor = os.getenv("EDITOR") or "emacs"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -118,7 +118,7 @@ tags = {
       layouts[5],   -- 1:irc
       layouts[10],  -- 2:emacs
       layouts[10],  -- 3:firefox
-      layouts[2],  -- 4:filemanager
+      layouts[2],   -- 4:filemanager
       layouts[2],   -- 5:vbox
       layouts[10],  -- 6:multimedia
       layouts[10],  -- 7:conky
