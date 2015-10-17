@@ -49,9 +49,8 @@ end
 -- }}}
 
 -- This is used later as the default terminal and editor to run.
--- use emacs as default terminal, this need to run emacs as daemon.
-terminal = "emacsclient -c -e \"(multi-term)\" -a emacs"
-editor = os.getenv("EDITOR") or "emacs"
+terminal = "x-terminal-emulator"
+editor = os.getenv("EDITOR") or "emacsclient -a \"\" -c"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -374,9 +373,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
-    awful.key({ modkey,           }, "w",     function () awful.util.spawn("firefox")    end),
-    awful.key({ modkey,           }, "e",     function () awful.util.spawn("xdg-open " .. home_path)     end),
-    awful.key({ modkey,           }, "d",     function () awful.util.spawn(home_path .. ".startd.sh")    end),
+    awful.key({ modkey,           }, "w",     function () awful.util.spawn("x-www-browser")    end),
+    awful.key({ modkey,           }, "e",     function () awful.util.spawn("emacsclient -a \"\" -c")     end),
+    awful.key({ modkey,           }, "o",     function () awful.util.spawn("xdg-open .")     end),
     awful.key({ modkey,           }, "Up",    function () awful.util.spawn("xdotool click --clearmodifiers 4")    end),
     awful.key({ modkey,           }, "Down",  function () awful.util.spawn("xdotool click --clearmodifiers 5")    end),
 
@@ -493,6 +492,8 @@ awful.rules.rules = {
       properties = { tag = tags[1][9] } },
     { rule = { class = "luakit" },
       properties = { tag = tags[1][2] } },
+    { rule = { class = "Thunderbird" },
+      properties = { tag = tags[1][1] } },
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { tag = tags[1][2] } },
@@ -563,4 +564,18 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
+-- Autorun programs
+autorun = true
+autorunApps =
+{
+    home_path .. ".startd.sh",
+}
+
+if autorun then
+    for app = 1, #autorunApps do
+        awful.util.spawn(autorunApps[app])
+    end
+end
+
 -- }}}
