@@ -106,8 +106,8 @@ tags = {
  names  = {
          '☭:IRC',
          '⚡:Emacs',
-         '♨:Firefox',
-         '☠:FileManager',
+         '♨:Web Browser',
+         '☠:Terminal',
          '☃:Vbox',
          '⌥:Multimedia',
          '⌘:Conky',
@@ -117,8 +117,8 @@ tags = {
  layout = {
       layouts[5],   -- 1:irc
       layouts[10],  -- 2:emacs
-      layouts[10],  -- 3:firefox
-      layouts[2],   -- 4:filemanager
+      layouts[10],  -- 3:web browser
+      layouts[2],   -- 4:terminal
       layouts[2],   -- 5:vbox
       layouts[10],  -- 6:multimedia
       layouts[10],  -- 7:conky
@@ -155,8 +155,8 @@ spacer       = wibox.widget.textbox()
 spacer:set_text(' | ')
 
 --Weather Widget
-weather = wibox.widget.textbox()
-vicious.register(weather, vicious.widgets.weather, "Weather: ${city}. Sky: ${sky}. Temp: ${tempc}c Humid: ${humid}%. Wind: ${windkmh} KM/h", 1200, "YMML")
+-- weather = wibox.widget.textbox()
+-- vicious.register(weather, vicious.widgets.weather, "Weather: ${city}. Sky: ${sky}. Temp: ${tempc}c Humid: ${humid}%. Wind: ${windkmh} KM/h", 1200, "YMML")
 
 --Battery Widget
 batt = wibox.widget.textbox()
@@ -303,11 +303,14 @@ for s = 1, screen.count() do
     bottom_layout:add(memicon)
     bottom_layout:add(mem)
     bottom_layout:add(spacer)
+    bottom_layout:add(neticon)
+    bottom_layout:add(net)
+    bottom_layout:add(spacer)
     bottom_layout:add(wifiicon)
     bottom_layout:add(wifi)
     bottom_layout:add(spacer)
-    bottom_layout:add(weather)
-    bottom_layout:add(spacer)
+    -- bottom_layout:add(weather)
+    -- bottom_layout:add(spacer)
 
  -- Now bring it all together
     --local layout = wibox.layout.align.horizontal()

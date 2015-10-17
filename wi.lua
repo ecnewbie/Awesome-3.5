@@ -171,3 +171,11 @@ wifiicon:set_image(beautiful.widget_wifi)
 wifi = wibox.widget.textbox()
 vicious.register(wifi, vicious.widgets.wifi, "${ssid} Rate: ${rate}MB/s Link: ${link}%", 3, "wlp3s0")
 -- End Wifi }}}
+
+-- {{{ Start Net
+neticon = wibox.widget.imagebox()
+neticon:set_image(beautiful.widget_net)
+--
+net = wibox.widget.textbox()
+vicious.register(net, vicious.widgets.net, "eth0 Down: ${eth0 down_kb}kb/s Up: ${eth0 up_b}b/s", 3, "eht0")
+-- End Wifi }}}
